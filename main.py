@@ -1,4 +1,3 @@
-
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
@@ -30,7 +29,7 @@ def select_seed(graph, ch, l=5):
         return [x[0] for x in sort_eigen][:l]
         
     elif ch == 6:
-        nx.draw(graph)
+        nx.draw(graph, node_size=180)
         plt.show()
         return []
     else:
@@ -77,7 +76,7 @@ def independent_cascade(g, seed, inn=0.5):
 G = nx.Graph()
 db_name = input("Database name: ")
 try:
-    d = open(f"Dataset\{db_name}.csv")
+    d = open(f"Dataset/{db_name}.csv")
     graph = nx.parse_edgelist(d, create_using=G, delimiter=",")
     degree_list = []
     rank_list = []
